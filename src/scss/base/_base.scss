@@ -1,0 +1,18 @@
+:root {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

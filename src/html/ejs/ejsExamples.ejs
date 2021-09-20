@@ -1,0 +1,18 @@
+<!-- prettier-ignore -->
+<% if(img.media){ %>
+<h1>foo</h1>
+<% } else{ %>
+<h1>bar</h1>
+<% } %>
+
+<!-- prettier-ignore -->
+<%# Good practice %> <% if (true) { %>
+<p>Yay it's true!</p>
+<% } %>
+
+<!-- prettier-ignore -->
+<ul>
+    <% users.forEach(function(user){ %>
+      <%- include('user/show', {user: user}); %>
+    <% }); %>
+</ul>

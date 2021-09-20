@@ -1,0 +1,28 @@
+<%- include('ejs/picture', {
+<!-- prettier-ignore -->
+img:{
+      ext: '.png',
+      src: './images/png/rating-companies/yandex',
+      class: 'rating__provider',
+      alt: 'Yandex',
+      webp: true,   
+      lazy: true,
+      width: '50',
+      height: '50',
+      data: { name: 'dataname',
+              value: 'dataValue'
+            },
+      retinaRatios: ['2x', '3x'],
+      breakpoints: [
+        {
+          suffix: '-tablet',
+          media: '(min-width: 780px)'         
+        },
+        {
+          suffix: '-desktop',
+          media: '(min-width: 1200px)'          
+        }        
+      ]         
+    }
+  }); 
+  %>

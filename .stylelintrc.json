@@ -1,0 +1,25 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-sass-guidelines",
+    "stylelint-config-recess-order",
+    "stylelint-config-prettier"
+  ],
+  "plugins": [
+    "stylelint-order",
+    "stylelint-scss",
+    "stylelint-declaration-block-no-ignored-properties"
+  ],
+  "rules": {
+    "order/properties-alphabetical-order": null,
+    "plugin/declaration-block-no-ignored-properties": true,
+    "max-nesting-depth": 3,
+    "scss/dollar-variable-pattern": "^[_-]?[a-z]+([a-z0-9-]+[a-z0-9]+)?$",
+    "selector-class-pattern": [
+      "^(?<block>(?:[a-z][a-z0-9]*)(?:-[a-z0-9]+)*)(?<element>(?:__[a-z][a-z0-9]*(?:-[a-z0-9]+)*))?(?<modifier>(?:--[a-z][a-z0-9]*)(?:-[a-z0-9]+)*)?$",
+      {
+        "resolveNestedSelectors": true
+      }
+    ]
+  }
+}

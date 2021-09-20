@@ -1,0 +1,109 @@
+<!-- prettier-ignore -->
+<picture>
+  <% if (img.webp ) { %>
+    <% if(img.breakpoints){ %>
+         <source
+            type="image/webp"
+            srcset="
+                <%= img.src%>.webp 1x,
+                <% if(img.retinaRatios){ %>
+                     <% img.retinaRatios.forEach(function(ratio, i, arr){ -%>
+                        <% if(i<(arr.length-1)){ %>
+                            <%= img.src%>@<%= ratio%>.webp <%= ratio%>,
+                        <% } else{ %>
+                            <%= img.src%>@<%= ratio%>.webp <%= ratio%>
+                        <% } %>
+                    <% }); -%>
+                <% } %>
+            "
+        />
+        <% img.breakpoints.forEach(function(breakpoint, i, arr) { %>
+            <source
+              type="image/webp"
+              media="<%= breakpoint.media%>"
+              srcset="
+                  <%= img.src%><%= breakpoint.suffix%>.webp 1x,
+                  <% if(img.retinaRatios){ %>
+                         <% img.retinaRatios.forEach(function(ratio, i, arr){ -%>
+                            <% if(i<(arr.length-1)){ %>
+                                <%= img.src%><%= breakpoint.suffix%>@<%= ratio%>.webp <%= ratio%>,
+                            <% } else{ %>
+                                <%= img.src%><%= breakpoint.suffix%>@<%= ratio%>.webp <%= ratio%>
+                            <% } %>
+                        <% }); -%>
+                  <% } %>
+              "
+            />
+    <% }); %>
+    <% } else { %>
+        <source
+            type="image/webp"
+            srcset="
+                <%= img.src%>.webp 1x,
+                <% if(img.retinaRatios){ %>
+                     <% img.retinaRatios.forEach(function(ratio, i, arr){ -%>
+                        <% if(i<(arr.length-1)){ %>
+                            <%= img.src%>@<%= ratio%>.webp <%= ratio%>,
+                        <% } else{ %>
+                            <%= img.src%>@<%= ratio%>.webp <%= ratio%>
+                        <% } %>
+                    <% }); -%>
+                <% } %>
+            "
+        />
+    <% } %>
+  <% } %>
+  <% if(img.breakpoints){ %>
+      <% img.breakpoints.forEach(function(breakpoint, i, arr) { %>
+          <source
+            media="<%= breakpoint.media%>"
+            srcset="
+                <%= img.src%><%= breakpoint.suffix%><%= img.ext%> 1x,
+                <% if(img.retinaRatios){ %>
+                       <% img.retinaRatios.forEach(function(ratio, i, arr){ -%>
+                        <% if(i<(arr.length-1)){ %>
+                            <%= img.src%><%= breakpoint.suffix%>@<%= ratio%><%= img.ext%> <%= ratio%>,
+                        <% } else{ %>
+                            <%= img.src%><%= breakpoint.suffix%>@<%= ratio%><%= img.ext%> <%= ratio%>
+                        <% } %>
+                      <% }); -%>
+                <% } %>
+            "
+          />
+      <% }); %>
+  <% } %>
+  <img
+    class="<%= img.class%>"
+    src="<%= img.src%><%= img.ext%>"
+    alt="<%= img.alt%>"
+
+    <% if (img.width) { %>
+        width="<%= img.width%>"
+    <% } %>
+
+    <% if (img.height) { %>
+        height="<%= img.height%>"
+    <% } %>  
+
+    <% if (img.data) { %>
+        data-<%= img.data.name%>="<%= img.data.value%>"
+    <% } %>
+
+    <% if (img.lazy) { %>
+        loading="lazy"
+    <% } %>
+    
+    <% if (img.retinaRatios) { %>
+        srcset="
+          <% img.retinaRatios.forEach(function(ratio, i, arr){ -%>
+
+            <% if(i<(arr.length-1)){ %>
+                <%= img.src%>@<%= ratio%><%= img.ext%> <%= ratio%>,
+            <% } else{ %>
+                <%= img.src%>@<%= ratio%><%= img.ext%> <%= ratio%>
+            <% } %>
+          <% }); -%>
+        "
+    <% } %>
+  />
+</picture>

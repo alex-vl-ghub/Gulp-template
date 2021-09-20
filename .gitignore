@@ -1,0 +1,9 @@
+# Dependency directories
+node_modules/
+package-lock.json
+dist/
+build/
+dev/
+temp/
+src/assets/fonts/generatedFonts
+.checksums

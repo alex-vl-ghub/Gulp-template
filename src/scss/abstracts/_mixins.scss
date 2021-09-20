@@ -1,0 +1,40 @@
+@mixin font-face($name, $file, $weight: 400, $style: normal) {
+  @font-face {
+    font-family: '#{$name}';
+    font-style: $style;
+    font-weight: $weight;
+    src: local('#{$file}'), url('../fonts/#{$file}.woff2') format('woff2'),
+      url('../fonts/#{$file}.woff') format('woff'),
+      url('../fonts/#{$file}.ttf') format('truetype');
+    font-display: swap;
+  }
+}
+
+@mixin max-width($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin min-width($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Without autoprefixer use rules with prefix:
+// @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+//   background-image: url($url2x);
+// }
+// @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+//   background-image: url($url3x);
+// }
+
+@mixin background-retina($url2x, $url3x) {
+  @media (min-resolution: 192dpi) {
+    background-image: url($url2x);
+  }
+  @media (min-resolution: 288dpi) {
+    background-image: url($url3x);
+  }
+}

@@ -1,0 +1,5 @@
+FontFamily-FontWeight.ext
+
+ext: otf|ttf|woff|woff2
+
+Only one format for each font.

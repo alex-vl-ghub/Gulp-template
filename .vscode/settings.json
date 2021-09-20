@@ -1,0 +1,7 @@
+{
+  "svg.preview.background": "transparent",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true
+  },
+  "telemetry.enableCrashReporter": false
+}
